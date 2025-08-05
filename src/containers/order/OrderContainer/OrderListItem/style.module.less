@@ -1,0 +1,41 @@
+.order_item_card {
+  // background-color: var(--card-background-lightyellow);
+  background-color: #fff;
+  .card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .status {
+      font-size: 14px;
+      color: var(--adm-color-weak);
+    }
+    padding-bottom: 8px;
+  }
+  .order_item {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+    .order_content {
+      padding: 5px 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .content_title {
+      font-weight: bold;
+      // font-size: 16px;
+      .user_danger {
+        padding-left: 10px;
+        color: red;
+      }
+      display: flex;
+      justify-content: space-between;
+    }
+    .content_item {
+      // font-size: 14px;
+    }
+  }
+}

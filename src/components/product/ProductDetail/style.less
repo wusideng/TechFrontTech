@@ -1,0 +1,60 @@
+@import (reference) "@/assets/css/main.less";
+.product-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  .price {
+    font-weight: bolder;
+    color: @money-color;
+  }
+  .time {
+    font-weight: bolder;
+    // color: darkkhaki;
+  }
+}
+
+.product_detail_line_1 {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(242, 242, 242, 1) 2%,
+  //   rgba(170, 170, 170, 1) 97%
+  // );
+  background: #e8ffe8;
+  .vertical-text {
+    writing-mode: vertical-rl; /* 设置文本竖直排列 */
+    text-orientation: mixed; /* 允许混合文本方向 */
+    white-space: nowrap; /* 防止换行 */
+    font-weight: bolder;
+  }
+}
+.product_detail_line_2 {
+  display: flex;
+  justify-content: space-between;
+  .price {
+    font-weight: bolder;
+    color: @money-color;
+    // color: darkgoldenrod;
+  }
+  .time {
+    font-weight: bolder;
+    // color: darkkhaki;
+  }
+}
+.product_detail_line_3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productWarnTitle {
+  font-weight: bolder;
+  // color: #70b603;
+}
+.productWarnContent {
+  font-size: 0.8rem;
+}

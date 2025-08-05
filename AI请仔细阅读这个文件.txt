@@ -1,0 +1,110 @@
+尚达元在线按摩平台的技师端 前端服务，对应目录为./code-backend
+尚达元在线按摩平台的技师端 前端服务，对应目录为./code-frontend-tech
+
+介绍：
+    尚达元在线按摩平台是一个微信公众服务号，三个入口：1.用户端 2.技师端 3.管理端
+    用户端可以预约技师，查看预约记录，查看技师信息，查看订单信息，查看服务记录等
+    技师端可以进行在线注册、签约、上传个人信息等，注册签约信息需要管理端进行审核，可以查看修改订单信息，可以查看收入明细
+    管理端供管理人员审核技师信息，查看运营信息
+    后端服务为用户端和技师端提供数据支持，包括预约记录，订单信息，技师信息等
+    本项目目前所有服务都部署在阿里云服务器上，并使用nginx代理服务, 服务器域名为visualstree.cn
+    homeServiceBackend为后端服务的主目录，包含所有后端服务的代码
+    homeFrontClient为用户端主目录，包含用户端前端所有代码
+    homeFrontTech为技师端主目录，包含技师端所有代码
+    homeInitSql为数据库的表结构记录
+    homeFrontService为管理端主目录
+
+
+code-frontend-tech为技师端主目录，包含技师端所有代码
+1、框架
+    使用React16， Redux ,Reducers , 页面组件采用antd mobile
+    antd mobile 官网地址：https://ant-design-mobile.antgroup.com/zh/components/
+    状态管理使用Redux, 全局store保存在reducer中，根据模块功能进行了拆分；
+2、目录
+    /src/containers/ 目录保存页面容器
+    /src/components/ 保存组件容器
+    /src/api/ 保存接口调用方法
+    /src/action/ 保存redux 触发的 action 属性
+    /src/reducers/ 保存全局Store,根据功能进行了拆分
+    /src/assets/ 样式，图片，文件模版
+3、组件
+    /src/containers/order/OrderDetailContainer  订单详细页面为
+    /src/containers/contract   技师合约页面
+4、素材
+    /src/assets/file/肖像权许可使用协议.docx    技师合约协议模版
+    /src/assets/file/肖像权许可使用协议.pdf     技师合约协议模版
+5、AI帮忙编写功能说明如下
+    在线签订技师（肖像权许可使用协议）合约，需要技师填写，姓名，性别，身份证号码信息，需要技师上传身份证，技师要在线手写签字，签字后技师端可以查看签字后的合约文件。
+    需要通过管理端进行审核并在线盖章；技师端也能查看审核进度
+    技师合约表结构如下：
+    IF NOT EXISTS (SELECT * FROM sys.tables WHERE name='t_tech_contracts')
+    BEGIN
+        CREATE TABLE [dbo].[t_tech_contracts](
+            [contracts_id] INT IDENTITY(1,1) PRIMARY KEY,	
+            [tech_openid] nvarchar(100)NOT NULL,
+            [tech_name] NVARCHAR(100) NOT NULL,
+            [tech_sex] NVARCHAR(20) NOT NULL,
+            [phone] NVARCHAR(18) NOT NULL,
+            [photo_front] NVARCHAR(255) NOT NULL,
+            [photo_back] NVARCHAR(255) NOT NULL,
+            [signature] NVARCHAR(255) NOT NULL,
+            [contract_file] NVARCHAR(255) NOT NULL,
+            [contract_type] NVARCHAR(255) NOT NULL,
+            [status] NVARCHAR(50) NOT NULL DEFAULT 'pending',
+            [created_at] DATETIME NOT NULL DEFAULT GETDATE()
+        );
+        EXEC sys.sp_addextendedproperty 'MS_Description', '技师合约表', 'SCHEMA', 'dbo', 'TABLE', 't_technician_contracts';
+    END
+    保存签名信息的参数如下
+    @router.post("/sign-contract/")
+    async def sign_contract(
+        tech_openid: str,
+        tech_name: str,
+        tech_sex: str,
+        phone: str,
+        photo_front: UploadFile = File(...),
+        photo_back: UploadFile = File(None),  # 可选字段
+        signature: UploadFile = File(...),
+    ):
+
+    
+
+
+homeservicebackend 
+    框架介绍：
+        使用python3.8.8 fastapi sqlmodel
+    1.当添加一个新的功能时，如果需要创建新的数据库表，需要先添加数据库的model定义，model怎么写参考t_user_address.py的格式, 
+        model 文件放在app/model路径下
+        请务必参考t_user_address.py的格式，确保格式一致,如t_user_address.py的格式为：
+        from datetime import datetime
+        from typing import Optional
+        from sqlmodel import Field, SQLModel
+        from sqlalchemy import desc
+
+
+        class UserAddress(SQLModel, table=True):
+            """用户地址模型"""
+
+        __tablename__ = "t_client_user_addresses"
+        ...
+        如果有create_time之类的字段default 为datetime.now不要使用utc时间
+
+        请确保这个格式
+
+    2.如果这个功能是一个大的模块，需要创建一个新的router文件，放到app/routers文件夹，并且注册路由，路由注册在app/main.py
+    3.router文件内容的格式请务必参考user_address.py中的内容，确保格式一致,如果需要获取session，使用from app.core.database import get_session
+    4. sql 语句设计：
+        sql语句使用ORM方式查询，要求：
+        （1）sql语句代码简洁，执行次数少
+         (2) sql语句执行效率高，如果有必要可以在一个方法里执行多个query
+homeInitSql :为数据库的表结构记录,如果需要创建新的数据库表或者需要添加/修改当前数据库的某些字段，需要在这个项目里先添加数据库的表结构，
+    表结构请务必参考create_t_client_user.sql，确保格式一致,比如create_t_client_user.sql的实现类似：
+    IF NOT EXISTS (SELECT * FROM sys.tables WHERE name='t_client_user_addresses')
+
+    CREATE TABLE [dbo].[t_client_user_addresses](	
+    [id] INT IDENTITY(1,1) PRIMARY KEY,
+    ...
+    EXEC sys.sp_addextendedproperty 'MS_Description','地址ID（主键）','SCHEMA','dbo','TABLE','t_client_user_addresses','COLUMN','id';
+    ... 
+    请保持这个格式
+   

@@ -1,0 +1,107 @@
+.wroktime-block-content {
+  // display: flex;
+  // flex-wrap: wrap; /* 允许换行 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+.time-block {
+  // flex: 1 0;
+  // margin: 5px;
+  // padding: 10px;
+  // text-align: center;
+  // line-height: 1rem;
+  // border: 1px solid #dbdbdb;
+
+  width: 70px; /* 设置每个 div 的宽度 */
+  height: 3rem; /* 设置每个 div 的高度 */
+  margin: 5px; /* 设置 div 之间的间距 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.worktime-block {
+  color: #ffffff;
+  background-color: lightblue;
+  .time-block;
+}
+
+.resttime-block {
+  color: #000;
+  background-color: #dbdbdb;
+  .time-block;
+}
+
+.apply_item {
+  // margin: 10px 0; /* 项目间距 */
+  // padding: 15px; /* 项目内边距 */
+  // border-radius: 5px; /* 圆角 */
+  // background-color: #fff;
+  // color: #888;
+  .apply_item_cardheader {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #dbdbdb;
+    .apply_item_type {
+      font-weight: bold;
+      font-size: 15px;
+      color: #000;
+    }
+    .apply_item_status {
+      font-weight: bold;
+      font-size: 15px;
+      // color: #000;
+    }
+  }
+
+  .apply_item_content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+}
+
+.address-poi {
+  .searchLine {
+    line-height: 33px;
+    height: 33px;
+    border-bottom: 1px solid #dbddbd;
+    border-top: 1px solid #dbdbdb;
+    padding: 0 10px;
+
+    .city {
+      font-weight: bold;
+    }
+  }
+
+  .poiItem {
+    display: flex;
+    // background: var(--card-style-background);
+    color: #333;
+    margin: 5px auto;
+    font-size: 14px;
+    padding: 10px;
+
+    .locationIcon {
+      margin: 5px;
+    }
+
+    .rightContent {
+      padding-left: 10px;
+
+      .addr {
+        color: #333;
+      }
+
+      .subAddr {
+        color: #888;
+        font-size: 0.7rem;
+      }
+    }
+  }
+}

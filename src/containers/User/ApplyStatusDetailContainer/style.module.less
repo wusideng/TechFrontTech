@@ -1,0 +1,50 @@
+.apply_status_detail_container_wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  flex: 1;
+  // .middleContent {
+  //   .flex-column();
+  :global(.content-area) {
+    display: flex;
+    flex-direction: column;
+    height: 0;
+    flex: 1;
+    gap: 0 !important;
+    height: 0;
+  }
+  .apply_status_detail_content {
+    .apply_card_content {
+      display: flex !important;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+      .apply_item_cardheader {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #dbdbdb;
+        .apply_item_type {
+          font-weight: bold;
+          font-size: 15px;
+          color: #000;
+        }
+        .apply_item_status {
+          font-weight: bold;
+          font-size: 15px;
+          // color: #000;
+        }
+      }
+    }
+    .apply_item_content {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      gap: 8px;
+    }
+    .apply_item_content_image {
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+    }
+  }
+}

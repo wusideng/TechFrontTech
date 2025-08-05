@@ -1,0 +1,50 @@
+.wrapper {
+  .filter_wrapper {
+    font-size: 16px;
+    display: flex;
+    gap: 5px;
+    color: var(--theme-color-secondary);
+    align-items: center;
+  }
+  .detail_wrapper {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 5px;
+    overflow: auto;
+    flex: 1;
+    .card_content_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .item {
+        display: flex;
+        gap: 12px;
+        align-items: baseline;
+        .title {
+          font-weight: bold;
+        }
+        .money {
+          font-size: 18px;
+          color: var(--money-color);
+        }
+        .money2 {
+          font-weight: bold;
+        }
+      }
+      .product_wrapper_outer {
+        margin-left: 12px;
+      }
+      .product_wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        .product_line {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}

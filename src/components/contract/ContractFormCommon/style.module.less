@@ -1,0 +1,44 @@
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  .card_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    padding: 20px 15px;
+    overflow: auto;
+  }
+  .card {
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    :global(.adm-list-item:first-child) {
+      :global(.adm-list-item-content) {
+        padding-top: 0px !important;
+      }
+    }
+  }
+  .form_wrapper {
+    padding: 12px 12px 12px 12px;
+    :global(.adm-form-item-label) {
+      width: 100px !important;
+    }
+    .image_form_item {
+      :global(.adm-list-item-content-main) {
+        flex-direction: column;
+      }
+    }
+  }
+  .button_wrapper {
+    background-color: #fff;
+    padding: 20px;
+  }
+  .button_wrapper2 {
+    background-color: #fff;
+    display: flex;
+    gap: 5px;
+  }
+}

@@ -1,0 +1,22 @@
+export type ApplyStatus = {
+  apply_id?: number;
+  apply_type: string;
+  tech_id: string;
+  apply_status?: string;
+  apply_refuse_cause?: string;
+  work_phone: string;
+  user_nickname: string;
+  user_sex: string;
+  user_age: string;
+  user_city: string;
+  photo_work?: string;
+  photo_life_1?: string;
+  photo_life_2?: string;
+  photo_life_3?: string;
+  business_license?: string;
+  technician_certificate?: string;
+  health_certificate?: string;
+  user_desc: string;
+  bank_card_type?: string;
+  bank_card_id?: string;
+};

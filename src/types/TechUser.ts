@@ -1,0 +1,23 @@
+export type TechUser = {
+  openid: string;
+  user_id?: number;
+  user_nickname: string;
+  user_sex: string;
+  user_age?: number;
+  user_desc?: string;
+  work_phone: string;
+  user_phone: string;
+  photo_work: string;
+  photo_life_1?: string;
+  photo_life_2?: string;
+  photo_life_3?: string;
+  headimgurl?: string;
+  business_license?: string;
+  technician_certificate?: string;
+  health_certificate?: string;
+  user_city?: string;
+  user_online_status?: string;
+  joinStatus: string;
+  bank_card_type?: string;
+  bank_card_id?: string;
+};

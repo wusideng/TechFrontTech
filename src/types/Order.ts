@@ -1,0 +1,38 @@
+export type OrderStatus = {
+  order_id: number;
+  order_status_type_code: string;
+  order_status_type: string;
+  order_operator?: string;
+};
+export type Order = {
+  actual_fee_received?: string | number;
+  client_user_id: string;
+  coupon_id: number | null;
+  coupon_value: string | number;
+  create_order_time: string;
+  nickname: string;
+  order_cost: string | number;
+  order_id: 239;
+  order_serial?: string;
+  order_status_code_client: string | null;
+  order_status_code_tech: string | null;
+  out_trade_no?: string;
+  parent_order_id: number | null;
+  payment_mode?: string;
+  payment_status: string;
+  payment_status_code: string;
+  remark?: string;
+  service_address: string;
+  service_city: string;
+  service_detail_address: string;
+  service_district: string;
+  service_province: string;
+  service_region: string;
+  service_street: string;
+  service_time: string;
+  tech_user_id: string;
+  travel_cost: string | number;
+  travel_distance: string | number;
+  travel_mode?: string | number;
+  travel_time?: number;
+};
