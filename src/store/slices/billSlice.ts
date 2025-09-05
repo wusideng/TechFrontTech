@@ -12,6 +12,8 @@ interface BillState {
   sum: {
     total_product_unpaid_income?: number;
     total_product_paid_income?: number;
+    total_order_count?: number;
+    conversion_rate_ratio?: number;
   };
   details: BillDetail[];
 }

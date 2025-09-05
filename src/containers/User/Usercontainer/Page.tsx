@@ -24,10 +24,7 @@ const Page = () => {
   }
 
   return (
-    <MiddleContentTab
-      className={styles.user_container_wrapper}
-      loading={loading}
-    >
+    <MiddleContentTab className={styles.user_container_wrapper} loading={loading}>
       <Card className="card-style user-head-card">
         <div className={styles.user_header}>
           <SetOutline
@@ -40,11 +37,7 @@ const Page = () => {
           />
           <div className={styles.photo}>
             <Image
-              src={
-                user.photo_work
-                  ? user.photo_work
-                  : user.headimgurl?.replace("https://thirdwx", "https://wx")
-              }
+              src={user.photo_work ? user.photo_work : user.headimgurl?.replace("https://thirdwx", "https://wx")}
               width={100}
               height={100}
               fit="fill"
@@ -71,6 +64,26 @@ const Page = () => {
           {address?.work_position ? address?.work_position : "暂未设定接单位置"}
         </p> */}
       </Card>
+      <Card className="card-style">
+        <div className={styles.online_status_wrapper}>
+          <div className={styles.online_status_first_line}>
+            <div style={{ width: "30%" }}>接单量：{sum.total_order_count}</div>
+            <div>
+              加钟率：<span style={{ color: "#ff0000" }}>{sum.conversion_rate_ratio}%</span>
+            </div>
+          </div>
+          {user.user_online_status != "online" && <div style={{ color: "#ff0000" }}>请咨询城市管理员,并申请上线</div>}
+        </div>
+        {/* <div className={styles.online_status_wrapper}>
+          <div className={styles.online_status_first_line}>
+            <div style={{width:"30%"}}>接单量：{sum.total_order_count}</div>
+            <div>加钟率：<span style={{ color: "#ff0000" }}>{sum.conversion_rate_ratio}%</span></div>
+          </div>
+          {user.user_online_status != "online" && (
+            <div style={{ color: "#ff0000" }}>请咨询城市管理员,并申请上线</div>
+          )}
+        </div> */}
+      </Card>
       <Card title={"上线状态"} className="card-style">
         <div className={styles.online_status_wrapper}>
           <div className={styles.online_status_first_line}>
@@ -83,9 +96,7 @@ const Page = () => {
               </div>
             )}
           </div>
-          {user.user_online_status != "online" && (
-            <div style={{ color: "#ff0000" }}>请咨询城市管理员,并申请上线</div>
-          )}
+          {user.user_online_status != "online" && <div style={{ color: "#ff0000" }}>请咨询城市管理员,并申请上线</div>}
         </div>
       </Card>
       <Card title={"我的钱包"} className="card-style">
@@ -93,9 +104,7 @@ const Page = () => {
           <div className={styles.pay_count}>
             <span>账户收益：</span>
             <span className="money-color">¥</span>
-            <span className="money-color">
-              {sum.total_product_unpaid_income + sum.total_product_paid_income}
-            </span>
+            <span className="money-color">{sum.total_product_unpaid_income + sum.total_product_paid_income}</span>
           </div>
           <div className={styles.pay_remind}>
             <div>待提取：¥ {sum.total_product_unpaid_income} 元</div>
@@ -132,15 +141,8 @@ const Page = () => {
             color="primary"
             size={size}
             onClick={async () => {
-              if (
-                applyingStatus.find(
-                  (as) =>
-                    as.apply_type == "tech_join" && as.apply_status == "apply"
-                )
-              ) {
-                Toast.show(
-                  "您已提交申请，请耐心等待审核结果，如需加急，请联系城市管理员。"
-                );
+              if (applyingStatus.find((as) => as.apply_type == "tech_join" && as.apply_status == "apply")) {
+                Toast.show("您已提交申请，请耐心等待审核结果，如需加急，请联系城市管理员。");
                 return;
               }
               navigate(`/${baseUrl}/joinUs`);
@@ -155,16 +157,8 @@ const Page = () => {
             color="primary"
             size={size}
             onClick={() => {
-              if (
-                applyingStatus.find(
-                  (as) =>
-                    as.apply_type == "tech_workphoto" &&
-                    as.apply_status == "apply"
-                )
-              ) {
-                Toast.show(
-                  "您已提交申请，请耐心等待审核结果，如需加急，请联系城市管理员。"
-                );
+              if (applyingStatus.find((as) => as.apply_type == "tech_workphoto" && as.apply_status == "apply")) {
+                Toast.show("您已提交申请，请耐心等待审核结果，如需加急，请联系城市管理员。");
                 return;
               }
               navigate(`/${baseUrl}/user/workphoto`);
@@ -179,16 +173,8 @@ const Page = () => {
             color="primary"
             size={size}
             onClick={() => {
-              if (
-                applyingStatus.find(
-                  (as) =>
-                    as.apply_type == "tech_lifephoto" &&
-                    as.apply_status == "apply"
-                )
-              ) {
-                Toast.show(
-                  "您已提交申请，请耐心等待审核结果，如需加急，请联系城市管理员。"
-                );
+              if (applyingStatus.find((as) => as.apply_type == "tech_lifephoto" && as.apply_status == "apply")) {
+                Toast.show("您已提交申请，请耐心等待审核结果，如需加急，请联系城市管理员。");
                 return;
               }
               navigate(`/${baseUrl}/user/lifephoto`);
@@ -203,16 +189,8 @@ const Page = () => {
             color="primary"
             size={size}
             onClick={() => {
-              if (
-                applyingStatus.find(
-                  (as) =>
-                    as.apply_type == "tech_certificate" &&
-                    as.apply_status == "apply"
-                )
-              ) {
-                Toast.show(
-                  "您已提交申请，请耐心等待审核结果，如需加急，请联系城市管理员。"
-                );
+              if (applyingStatus.find((as) => as.apply_type == "tech_certificate" && as.apply_status == "apply")) {
+                Toast.show("您已提交申请，请耐心等待审核结果，如需加急，请联系城市管理员。");
                 return;
               }
               navigate(`/${baseUrl}/user/certificate`);
@@ -297,8 +275,7 @@ const Page = () => {
         </p>
       </Card>
       <Card title={"平台信息"} className="card-style">
-      <div>版本号：V1.05.0723</div>
-
+        <div>版本号：V1.05.0723</div>
       </Card>
     </MiddleContentTab>
   );

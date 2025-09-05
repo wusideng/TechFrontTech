@@ -101,7 +101,7 @@ const Page = () => {
           <div className="left-content">距离:</div>
           <div className="right-content">{order.travel_distance} km</div>
         </div>
-        <div className="orderDetailItem">
+        {/* <div className="orderDetailItem">
           <div className="left-content">交通费用:</div>
           <div className="right-content money-color">
             {order.travel_cost * 2} 元
@@ -110,16 +110,28 @@ const Page = () => {
         <div className="orderDetailItem">
           <div className="left-content">订单金额:</div>
           <div className="right-content money-color">{order.order_cost} 元</div>
-        </div>
+        </div> */}
       </Card>
       <Card
         title="技师收益信息"
         style={{ background: "#fff", border: "1px solid #dbdbdb" }}
       >
         <div className="orderDetailItem">
+          <div className="left-content">技师名称:</div>
+          <div className="right-content">
+            {order.tech.user_nickname}
+          </div>
+        </div>
+        <div className="orderDetailItem">
           <div className="left-content">项目总金额:</div>
           <div className="right-content">
             {order.total_fee_paid_by_customer}元
+          </div>
+        </div>
+        <div className="orderDetailItem">
+          <div className="left-content">优惠券:</div>
+          <div className="right-content money-color">
+            {order.coupon_value} 元
           </div>
         </div>
         <div className="orderDetailItem">
