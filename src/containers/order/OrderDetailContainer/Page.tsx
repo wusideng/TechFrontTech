@@ -127,15 +127,19 @@ const Page = () => {
         </div>
         <div className="orderDetailItem">
           <div className="left-content">项目总金额:</div>
-          <div className="right-content">
+          <div className="right-content money-color">
             {order.total_fee_paid_by_customer}元
           </div>
         </div>
         <div className="orderDetailItem">
           <div className="left-content">优惠券:</div>
-          <div className="right-content money-color">
+          <div className="right-content">
             {order.coupon_value} 元
           </div>
+        </div>
+        <div className="orderDetailItem">
+          <div className="left-content">营业税:</div>
+          <div className="right-content">{order.order_products.length * maintainence_fee} 元</div>
         </div>
         <div className="orderDetailItem">
           <div className="left-content">交通费用:</div>
@@ -144,12 +148,8 @@ const Page = () => {
           </div>
         </div>
         <div className="orderDetailItem">
-          <div className="left-content">营业税:</div>
-          <div className="right-content money-color">{order.order_products.length * maintainence_fee} 元</div>
-        </div>
-        <div className="orderDetailItem">
           <div className="left-content">技师分成:</div>
-          <div className="right-conten">{order?.tech?.ratio} %</div>
+          <div className="right-conten money-color">{order?.tech?.ratio} %</div>
         </div>
         <div className="orderDetailItem">
           <div className="left-content">技师收益:</div>
