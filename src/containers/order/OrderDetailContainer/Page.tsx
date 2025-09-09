@@ -144,12 +144,12 @@ const Page = () => {
           </div>
         </div>
         <div className="orderDetailItem">
-          <div className="left-content">技师分成:</div>
-          <div className="right-conten">{order?.tech?.ratio} %</div>
-        </div>
-        <div className="orderDetailItem">
           <div className="left-content">营业税:</div>
           <div className="right-content money-color">{order.order_products.length * maintainence_fee} 元</div>
+        </div>
+        <div className="orderDetailItem">
+          <div className="left-content">技师分成:</div>
+          <div className="right-conten">{order?.tech?.ratio} %</div>
         </div>
         <div className="orderDetailItem">
           <div className="left-content">技师收益:</div>
