@@ -9,7 +9,10 @@ import { orderIsWaitForPayment, orderIsCanceled } from "@/util/dict";
 import { useAppSelector } from "@/store";
 import styles from "./style.module.less";
 
+
 const Page = () => {
+  // 渠道费（平台维护费）（营业税）
+  const maintainence_fee = 10
   const { order, orderStatus, loading } = useAppSelector(
     (state) => state.order
   ); // 确保路径正确
@@ -145,8 +148,8 @@ const Page = () => {
           <div className="right-conten">{order?.tech?.ratio} %</div>
         </div>
         <div className="orderDetailItem">
-          <div className="left-content">渠道费:</div>
-          <div className="right-content money-color">{18} 元</div>
+          <div className="left-content">营业税:</div>
+          <div className="right-content money-color">{order.order_products.length * maintainence_fee} 元</div>
         </div>
         <div className="orderDetailItem">
           <div className="left-content">技师收益:</div>
