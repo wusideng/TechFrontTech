@@ -59,6 +59,7 @@ const Page = () => {
               </Button>
             ) : null}
           </div>
+          {user.user_online_status != "online" && <div style={{ color: "#ff0000" }}>请咨询城市管理员,并申请上线</div>}
         </div>
         {/* <p>
           {address?.work_position ? address?.work_position : "暂未设定接单位置"}
@@ -69,20 +70,16 @@ const Page = () => {
           <div className={styles.online_status_first_line}>
             <div style={{ width: "30%" }}>接单量：{sum.total_order_count}</div>
             <div>
-              加钟率：<span style={{ color: "#ff0000" }}>{sum.conversion_rate_ratio}%</span>
+              加钟率：<span style={{ color: "#ff0000" }}>{sum.extend_rate_ratio}%</span>
             </div>
           </div>
-          {user.user_online_status != "online" && <div style={{ color: "#ff0000" }}>请咨询城市管理员,并申请上线</div>}
-        </div>
-        {/* <div className={styles.online_status_wrapper}>
           <div className={styles.online_status_first_line}>
-            <div style={{width:"30%"}}>接单量：{sum.total_order_count}</div>
-            <div>加钟率：<span style={{ color: "#ff0000" }}>{sum.conversion_rate_ratio}%</span></div>
+            <div style={{ width: "30%" }}>替单量：{sum.actual_total_order_count}</div>
+            <div>
+              替单加钟率：<span style={{ color: "#ff0000" }}>{sum.actual_extend_rate_ratio}%</span>
+            </div>
           </div>
-          {user.user_online_status != "online" && (
-            <div style={{ color: "#ff0000" }}>请咨询城市管理员,并申请上线</div>
-          )}
-        </div> */}
+        </div>
       </Card>
       <Card title={"上线状态"} className="card-style">
         <div className={styles.online_status_wrapper}>
@@ -110,10 +107,6 @@ const Page = () => {
             <div>待提取：¥ {sum.total_product_unpaid_income} 元</div>
             <div>已提取：¥ {sum.total_product_paid_income}元</div>
           </div>
-          {/* <div className="pay_remind">
-            <div>车费：待提取：¥ {sum.total_travel_unpaid} 元</div>
-            <div>已提取：¥ {sum.total_travel_paid}元</div>
-          </div> */}
           <div className={styles.pay_remind}>
             <div>每周五发放收益</div>
             <div>
@@ -275,7 +268,7 @@ const Page = () => {
         </p>
       </Card>
       <Card title={"平台信息"} className="card-style">
-        <div>版本号：V1.05.0723</div>
+        <div>版本号：V1.05.0905</div>
       </Card>
     </MiddleContentTab>
   );

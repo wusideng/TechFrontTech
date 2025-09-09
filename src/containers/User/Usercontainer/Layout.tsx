@@ -16,7 +16,8 @@ const Layout = () => {
   useEffect(() => {
     const init = async () => {
       await dispatch(getBillByTechSum(user.openid));
-      await dispatch(getApplyingStatus(user.openid));
+      // 申请状态查看，暂时没有用到，暂时注释掉
+      // await dispatch(getApplyingStatus(user.openid));
       setLoading(false);
     };
     if (user) {

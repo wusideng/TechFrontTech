@@ -13,7 +13,9 @@ interface BillState {
     total_product_unpaid_income?: number;
     total_product_paid_income?: number;
     total_order_count?: number;
-    conversion_rate_ratio?: number;
+    extend_rate_ratio?: number;
+    actual_total_order_count?: number;
+    actual_extend_rate_ratio?: number;
   };
   details: BillDetail[];
 }
